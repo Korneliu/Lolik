@@ -1,0 +1,60 @@
+1. Principiul responsabilității unice (Single Responsibility Principle) - 
+o clasă ar trebui să aibă o singură responsabilitate și să fie responsabilă pentru o singură parte a funcționalității sistemului.
+
+
+2. Principiul deschis-închis (Open/Closed Principle) - 
+o clasă ar trebui să permită extinderea prin adăugarea de noi funcționalități, dar să evite modificarea codului existent.
+
+
+3. Principiul substituirii Liskov (Liskov Substitution Principle) - 
+obiectele unei subclase ar trebui să poată fi înlocuite cu obiectele clasei de bază, fără a afecta corectitudinea programului.
+
+
+4. Principiul segregării interfețelor (Interface Segregation Principle) - 
+interfețele ar trebui să fie proiectate astfel încât să fie specifice pentru clientul lor și să nu conțină metode inutile pentru acei clienți.
+
+
+5. Principiul inversării dependenței (Dependency Inversion Principle) - 
+modulele ar trebui să depindă de abstracțiuni, nu de implementări, astfel încât să fie ușor de schimbat implementările fără a afecta alte module.
+
+
+
+1. Single Responsibility Principle - Noi avem clasa PlayerMovement care răspunde numai pentru controlul personajului asta
+                                     putem observa aici @Project/Scripts/Player/PlayerMove/PlayerMovement.
+
+
+2. Open/Closed Principle - De exemplu, clasa de arme poate fi închisă pentru modificare, dar deschisă pentru extindere 
+                           cu noi tipuri de arme. Putem observa aici @Project/Scripts/Sword.
+
+
+3. Liskov Substitution Principle - De exemplu, clasele de diferite tipuri ale inamicului trebuie să aibă aceleași metode, 
+                                   astfel încât să fie posibilă înlocuirea lor între ele fără a strica jocul.
+                                   @Project/Scripts/Enemy/EnemyController.
+
+
+4. Interface Segregation Principle - de exemplu, interfața IDagameable poate conține doar metode legate de player
+                                     @Project/Scripts/Interface/IDagameable.
+
+
+5. Dependency Inversion Principle - de exemplu, clasa Sword poate depinde de o interfață și nu de o anumită clasă de arme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

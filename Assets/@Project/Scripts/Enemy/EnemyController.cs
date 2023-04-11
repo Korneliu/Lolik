@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour, IDamageable
 {
-    private const string AnimAttack = "Attack", AnimWalk = "Walk", AnimDeath = "Death";
+    private const string AnimAttack = "AttackEnemy", AnimWalk = "Walk", AnimDeath = "Death";
     [SerializeField] private float _health;
     [SerializeField] private float _dist;
     [SerializeField] private Animator _animator;

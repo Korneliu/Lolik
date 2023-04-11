@@ -262,7 +262,7 @@ MonoBehaviour:
     Sesitivity: 8
   _playerMovement:
     MoveSpeed: 5
-    SprintSpeed: 10
+    SprintSpeed: 7.5
     RotationSmoothTime: 0.12
     SpeedChangeRate: 10
     JumpHeight: 1.2
@@ -314,7 +314,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2289576}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
   m_Height: 2
@@ -3421,7 +3421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1141600901587792514, guid: 27810e32d765eb54aa22be01baf8457d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0799998
       objectReference: {fileID: 0}
     - target: {fileID: 1141600901587792514, guid: 27810e32d765eb54aa22be01baf8457d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13363,6 +13363,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1434465801903757385, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
 --- !u!4 &1082712378 stripped
@@ -17324,7 +17328,7 @@ MonoBehaviour:
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 64
-  IgnoreTag: 
+  IgnoreTag: Enemy
   CameraRadius: 0.2
   DampingIntoCollision: 0
   DampingFromCollision: 2

@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: b59d7967868742145957b0de17aedacc, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 46d3455c904afdb41b265bca5e23658d, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -261,8 +261,8 @@ MonoBehaviour:
     LockCameraPosition: 0
     Sesitivity: 8
   _playerMovement:
-    MoveSpeed: 2
-    SprintSpeed: 5.335
+    MoveSpeed: 5
+    SprintSpeed: 10
     RotationSmoothTime: 0.12
     SpeedChangeRate: 10
     JumpHeight: 1.2

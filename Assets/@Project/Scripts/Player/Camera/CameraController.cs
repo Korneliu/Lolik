@@ -58,7 +58,7 @@ namespace Controller
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Sesitivity * Time.deltaTime;
 
                 _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetPitch -= _input.look.y * deltaTimeMultiplier;
             }
 
             _cinemachineTargetYaw = Math.ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);

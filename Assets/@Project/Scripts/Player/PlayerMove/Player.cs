@@ -62,8 +62,6 @@ namespace Entity
             if (stateDrivenCamera == null) return;
             _cameraController.Connect(stateDrivenCamera);
         }
-        
-        public void AttackDamage() => _playerController.AttackDamage();
 
 #if UNITY_EDITOR
         public void OnDrawGizmosSelected()

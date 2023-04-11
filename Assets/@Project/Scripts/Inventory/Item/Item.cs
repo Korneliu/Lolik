@@ -1,17 +1,11 @@
-﻿using Controller;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+namespace SG
 {
-    public ItemScriptableObject item;
-    public int amount;
-    public GameObject buttonE;
-
-    public void OnTriggerEnter(Collider collider)
+    public class Item : ScriptableObject
     {
-        //if (collider.gameObject.GetComponent<PlayerController>() != null)
-        //{
-        //    buttonE.SetActive(true);
-        //}
+        [Header("Item Information")]
+        public Sprite itemIcon;
+        public string itemName;
     }
 }

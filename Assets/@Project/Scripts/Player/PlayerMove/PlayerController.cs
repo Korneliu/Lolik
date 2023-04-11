@@ -20,7 +20,6 @@ namespace Controller
         public LayerMask GroundLayers;
 
         [Tooltip("What layers the character uses as ground")]
-        public Sword Weapon;
 
         private Animator _animator;
         private Transform _transform;
@@ -91,8 +90,6 @@ namespace Controller
 
             _animator.SetBool(_animIDGrounded, Grounded);
         }
-
-        public void AttackDamage() => Weapon.TakeDamage();
 
 #if UNITY_EDITOR
         public void OnDrawGizmosSelected()

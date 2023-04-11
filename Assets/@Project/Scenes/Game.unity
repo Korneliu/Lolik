@@ -261,8 +261,8 @@ MonoBehaviour:
     LockCameraPosition: 0
     Sesitivity: 8
   _playerMovement:
-    MoveSpeed: 5
-    SprintSpeed: 7.5
+    MoveSpeed: 3
+    SprintSpeed: 6
     RotationSmoothTime: 0.12
     SpeedChangeRate: 10
     JumpHeight: 1.2
@@ -314,7 +314,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2289576}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.3
   m_Height: 2
@@ -13367,6 +13367,18 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3300121055180180967, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300121055180180967, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+      propertyPath: pushForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300121055180180967, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+      propertyPath: pushPoint
+      value: 
+      objectReference: {fileID: 2289576}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
 --- !u!4 &1082712378 stripped

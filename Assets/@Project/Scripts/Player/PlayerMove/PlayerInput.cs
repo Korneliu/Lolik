@@ -5,20 +5,14 @@ namespace SG
 {
     public class PlayerInput : MonoBehaviour
     {
-        
         [Header("Character Input Values")] public Vector2 move;
+        [SerializeField] PlayerInventory playerInventory;
         public Vector2 look;
         public bool jump;
         public bool roll;
         public bool attack;
         public bool sprint;
 
-        public bool d_Pad_Up;
-        public bool d_Pad_Down;
-        public bool d_Pad_Left;
-        public bool d_Pad_Right;
-
-        PlayerInventory playerInventory;
 
         [Header("Movement Settings")] public bool analogMovement;
 
@@ -30,6 +24,20 @@ namespace SG
         {
             _input = new Input();
             _input.Enable();
+            _input.PlayerQuickSlots.DPadRight.performed += DPadRightInput;
+            _input.PlayerQuickSlots.DPadLeft.performed += DPadLeftInput;
+        }
+
+        private void DPadLeftInput(InputAction.CallbackContext obj)
+        {
+            if (obj.ReadValue<float>() == 1F)
+                DPadLeftInput();
+        }
+
+        private void DPadRightInput(InputAction.CallbackContext obj)
+        {
+            if (obj.ReadValue<float>() == 1F)
+                DPadRightInput();
         }
 
         private void Update()
@@ -106,25 +114,14 @@ namespace SG
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         }
 
-
-
-        public void TickInput(float delta)
+        public void DPadRightInput()
         {
-            HandleQuickSlotsInput();
+            playerInventory.ChangeRightWeapon();
         }
 
-        private void HandleQuickSlotsInput()
+        public void DPadLeftInput()
         {
-            _input.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
-            _input.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
-
-            if (d_Pad_Right)
-            {
-                playerInventory.ChangeRightWeapon();
-            }else if (d_Pad_Left)
-            {
-                playerInventory.ChangeLeftWeapon();
-            }
+            playerInventory.ChangeLeftWeapon();
         }
     }
 }

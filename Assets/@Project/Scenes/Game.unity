@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.41227594, g: 0.48922873, b: 0.60328513, a: 1}
+  m_IndirectSpecularColor: {r: 0.41227058, g: 0.48923618, b: 0.60328966, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 2289583}
   - component: {fileID: 2289579}
   - component: {fileID: 2289582}
-  - component: {fileID: 2289584}
   - component: {fileID: 2289586}
   m_Layer: 0
   m_Name: Player
@@ -161,15 +160,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
+  playerInventory: {fileID: 2289585}
   look: {x: 0, y: 0}
   jump: 0
   roll: 0
   attack: 0
   sprint: 0
-  d_Pad_Up: 0
-  d_Pad_Down: 0
-  d_Pad_Left: 0
-  d_Pad_Right: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -311,20 +307,6 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   healthBarPlayer: {fileID: 1577775902}
---- !u!136 &2289584
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2289576}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &2289585
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -66,11 +66,6 @@ namespace SG
         public void LateUpdate()
         {
             _camera.CameraRotation();
-
-            Input.d_Pad_Up = false;
-            Input.d_Pad_Down = false;
-            Input.d_Pad_Left = false;
-            Input.d_Pad_Right = false;
         }
 
         private void AssignAnimationIDs()

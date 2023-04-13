@@ -55,7 +55,7 @@ namespace SG
 
         public void OpenRightDamageCollider()
         {
-            rightHandDamageCollider.EnableDamageCollider();
+            rightHandDamageCollider?.EnableDamageCollider();
         }
 
         public void OpenLeftDamageCollider()
@@ -65,7 +65,7 @@ namespace SG
 
         public void CloseRightDamageCollider()
         {
-            rightHandDamageCollider.DisableDamageCollider();
+            rightHandDamageCollider?.DisableDamageCollider();
         }
 
         public void CloseLeftDamageCollider()

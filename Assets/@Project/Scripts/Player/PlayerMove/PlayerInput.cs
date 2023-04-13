@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Controller
+namespace SG
 {
     public class PlayerInput : MonoBehaviour
     {

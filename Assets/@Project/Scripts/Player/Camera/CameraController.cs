@@ -2,7 +2,7 @@
 using Cinemachine;
 using UnityEngine;
 
-namespace Controller
+namespace SG
 {
     [Serializable]
     public class CameraController

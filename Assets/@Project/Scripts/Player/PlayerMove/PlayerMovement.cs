@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Controller.Movement
+namespace SG
 {
     [Serializable]
     public class PlayerMovement

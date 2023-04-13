@@ -1,4 +1,3 @@
-using Controller.Movement;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -34,7 +33,7 @@ public class PlayerStats : MonoBehaviour
         currentHealth = currentHealth - damage;
         healthBarPlayer.SetCurrentHealth(currentHealth);
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             currentHealth = 0;
             animator.Play("Death");

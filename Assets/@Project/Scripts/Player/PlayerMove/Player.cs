@@ -1,11 +1,8 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-namespace Entity
+namespace SG
 {
-    using Controller;
-    using Controller.Movement;
-
     [RequireComponent(typeof(CharacterController),
         typeof(UnityEngine.InputSystem.PlayerInput),
         typeof(PlayerInput))]

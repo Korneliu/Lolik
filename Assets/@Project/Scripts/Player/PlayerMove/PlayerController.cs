@@ -1,9 +1,7 @@
-﻿using Controller.Movement;
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Controller
+namespace SG
 {
     [Serializable]
     public class PlayerController
@@ -62,7 +60,7 @@ namespace Controller
             _movement.JumpAndGravity();
             GroundedCheck();
             _movement.Move();
-            _animator.SetBool(_animIDAttack,  Input.attack);
+            _animator.SetBool(_animIDAttack, Input.attack);
         }
 
         public void LateUpdate()

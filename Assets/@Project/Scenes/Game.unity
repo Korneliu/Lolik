@@ -166,6 +166,10 @@ MonoBehaviour:
   roll: 0
   attack: 0
   sprint: 0
+  d_Pad_Up: 0
+  d_Pad_Down: 0
+  d_Pad_Left: 0
+  d_Pad_Right: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -335,6 +339,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightWeapon: {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
   leftWeapon: {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
+  unarmedWeapon: {fileID: 11400000, guid: 266ee7cf2eec95e498235e4e86ae935a, type: 2}
+  weaponInRightHandSlots:
+  - {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
+  - {fileID: 11400000, guid: e1f9a74d0cf0c824a83e1ed2de5742cd, type: 2}
+  weaponInLeftHandSlots:
+  - {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
+  - {fileID: 11400000, guid: e1f9a74d0cf0c824a83e1ed2de5742cd, type: 2}
+  currentRightWeaponIndex: -1
+  currentLeftWeaponIndex: -1
 --- !u!114 &2289586
 MonoBehaviour:
   m_ObjectHideFlags: 0

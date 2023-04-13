@@ -13,6 +13,13 @@ namespace SG
         public bool attack;
         public bool sprint;
 
+        public bool d_Pad_Up;
+        public bool d_Pad_Down;
+        public bool d_Pad_Left;
+        public bool d_Pad_Right;
+
+        PlayerInventory playerInventory;
+
         [Header("Movement Settings")] public bool analogMovement;
 
         [Header("Mouse Cursor Settings")] public bool cursorLocked = true;
@@ -97,6 +104,27 @@ namespace SG
         private void SetCursorState(bool newState)
         {
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+        }
+
+
+
+        public void TickInput(float delta)
+        {
+            HandleQuickSlotsInput();
+        }
+
+        private void HandleQuickSlotsInput()
+        {
+            _input.PlayerQuickSlots.DPadRight.performed += i => d_Pad_Right = true;
+            _input.PlayerQuickSlots.DPadLeft.performed += i => d_Pad_Left = true;
+
+            if (d_Pad_Right)
+            {
+                playerInventory.ChangeRightWeapon();
+            }else if (d_Pad_Left)
+            {
+                playerInventory.ChangeLeftWeapon();
+            }
         }
     }
 }

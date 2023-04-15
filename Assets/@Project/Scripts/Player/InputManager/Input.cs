@@ -917,6 +917,34 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PickUpItem"",
+            ""id"": ""6c33415b-37b7-4fa0-992e-2635e5a3e22b"",
+            ""actions"": [
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""b291b34f-22b5-4d99-a195-729aeb5cdc75"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""94ea6bb6-7142-472d-88ed-dd16c08766c5"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1009,6 +1037,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_PlayerQuickSlots_DPadDown = m_PlayerQuickSlots.FindAction("D-Pad Down", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadLeft = m_PlayerQuickSlots.FindAction("D-Pad Left", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadRight = m_PlayerQuickSlots.FindAction("D-Pad Right", throwIfNotFound: true);
+        // PickUpItem
+        m_PickUpItem = asset.FindActionMap("PickUpItem", throwIfNotFound: true);
+        m_PickUpItem_PickUp = m_PickUpItem.FindAction("PickUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1348,6 +1379,52 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     public PlayerQuickSlotsActions @PlayerQuickSlots => new PlayerQuickSlotsActions(this);
+
+    // PickUpItem
+    private readonly InputActionMap m_PickUpItem;
+    private List<IPickUpItemActions> m_PickUpItemActionsCallbackInterfaces = new List<IPickUpItemActions>();
+    private readonly InputAction m_PickUpItem_PickUp;
+    public struct PickUpItemActions
+    {
+        private @Input m_Wrapper;
+        public PickUpItemActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PickUp => m_Wrapper.m_PickUpItem_PickUp;
+        public InputActionMap Get() { return m_Wrapper.m_PickUpItem; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PickUpItemActions set) { return set.Get(); }
+        public void AddCallbacks(IPickUpItemActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PickUpItemActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PickUpItemActionsCallbackInterfaces.Add(instance);
+            @PickUp.started += instance.OnPickUp;
+            @PickUp.performed += instance.OnPickUp;
+            @PickUp.canceled += instance.OnPickUp;
+        }
+
+        private void UnregisterCallbacks(IPickUpItemActions instance)
+        {
+            @PickUp.started -= instance.OnPickUp;
+            @PickUp.performed -= instance.OnPickUp;
+            @PickUp.canceled -= instance.OnPickUp;
+        }
+
+        public void RemoveCallbacks(IPickUpItemActions instance)
+        {
+            if (m_Wrapper.m_PickUpItemActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPickUpItemActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PickUpItemActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PickUpItemActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PickUpItemActions @PickUpItem => new PickUpItemActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1422,5 +1499,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         void OnDPadDown(InputAction.CallbackContext context);
         void OnDPadLeft(InputAction.CallbackContext context);
         void OnDPadRight(InputAction.CallbackContext context);
+    }
+    public interface IPickUpItemActions
+    {
+        void OnPickUp(InputAction.CallbackContext context);
     }
 }

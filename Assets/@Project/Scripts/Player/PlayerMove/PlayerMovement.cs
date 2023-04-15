@@ -35,10 +35,11 @@ namespace SG
 
         private PlayerInput _input;
         private CharacterController _controller;
-        private PlayerController _playerController;
+        private PlayerController playerController;
         private Camera _mainCamera;
         private Transform _transform;
         private Animator animator;
+        public Rigidbody rigidbody;
 
         private float _speed;
         private float _animationBlend;
@@ -79,7 +80,6 @@ namespace SG
             CharacterController controller)
         {
             _transform = transform;
-            _playerController = playerController;
             Animator = animator;
             _input = input;
             _controller = controller;
@@ -134,19 +134,19 @@ namespace SG
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            Animator.SetFloat(_playerController._animIDSpeed, _animationBlend);
-            Animator.SetFloat(_playerController._animIDMotionSpeed, inputMagnitude);
-            Animator.SetBool(_playerController.animIDRoll, _input.roll);
+            Animator.SetFloat(playerController._animIDSpeed, _animationBlend);
+            Animator.SetFloat(playerController._animIDMotionSpeed, inputMagnitude);
+            Animator.SetBool(playerController.animIDRoll, _input.roll);
         }
 
         public void JumpAndGravity()
         {
-            if (_playerController.Grounded)
+            if (playerController.Grounded)
             {
                 _fallTimeoutDelta = FallTimeout;
 
-                Animator.SetBool(_playerController._animIDJump, false);
-                Animator.SetBool(_playerController._animIDFreeFall, false);
+                Animator.SetBool(playerController._animIDJump, false);
+                Animator.SetBool(playerController._animIDFreeFall, false);
 
                 if (_verticalVelocity < 0.0f)
                 {
@@ -157,7 +157,7 @@ namespace SG
                 {
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
-                    Animator.SetBool(_playerController._animIDJump, true);
+                    Animator.SetBool(playerController._animIDJump, true);
                 }
 
                 if (_jumpTimeoutDelta >= 0.0f)
@@ -175,7 +175,7 @@ namespace SG
                 }
                 else
                 {
-                    Animator.SetBool(_playerController._animIDFreeFall, true);
+                    Animator.SetBool(playerController._animIDFreeFall, true);
                 }
 
                 _input.jump = false;

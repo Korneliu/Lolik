@@ -13,6 +13,7 @@ namespace SG
         public bool attack;
         public bool sprint;
 
+        public bool a_Input;
 
         [Header("Movement Settings")] public bool analogMovement;
 
@@ -124,6 +125,11 @@ namespace SG
         public void DPadLeftInput()
         {
             playerInventory.ChangeLeftWeapon();
+        }
+
+        private void HandleINteractingButtonInput()
+        {
+            _input.PickUpItem.PickUp.performed += i => a_Input = true;
         }
     }
 }

@@ -895,6 +895,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PickUpItem",
+            "id": "6c33415b-37b7-4fa0-992e-2635e5a3e22b",
+            "actions": [
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "b291b34f-22b5-4d99-a195-729aeb5cdc75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "94ea6bb6-7142-472d-88ed-dd16c08766c5",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

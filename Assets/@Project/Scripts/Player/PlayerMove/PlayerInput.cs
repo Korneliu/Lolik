@@ -20,6 +20,8 @@ namespace SG
         public bool cursorInputForLook = true;
         private Input _input;
 
+        PlayerInput playerInput;
+
         private void Awake()
         {
             _input = new Input();

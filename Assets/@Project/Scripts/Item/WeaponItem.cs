@@ -7,5 +7,10 @@ namespace SG
     {
         public GameObject modelPrefab;
         public bool isUnarmed;
+
+        [Header("Stamina Costs")]
+        public int baseStamina;
+        public float lightAttackMultiplier;
+        public float heavyAttackMultiplier;
     }
 }

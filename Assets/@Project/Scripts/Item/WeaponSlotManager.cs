@@ -4,6 +4,9 @@ namespace SG
 {
     public class WeaponSlotManager : MonoBehaviour
     {
+        public WeaponItem attackingWeapon;
+        WeaponSlotManager weaponSlotManager;
+
         WeaponHolderSlot leftHandSlot;
         WeaponHolderSlot rightHandSlot;
 
@@ -11,10 +14,13 @@ namespace SG
         DamageCollider rightHandDamageCollider;
 
         QuickSlotUI quickSlotUI;
+        PlayerStats playerStats;
 
         private void Awake()
         {
+            weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
             quickSlotUI = FindObjectOfType<QuickSlotUI>();
+            playerStats = GetComponentInParent<PlayerStats>();
 
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
@@ -34,12 +40,14 @@ namespace SG
         {
             if (isLeft)
             {
+                weaponSlotManager.attackingWeapon = weaponItem;
                 leftHandSlot.LoadWeaponModel(weaponItem);
                 LoadLeftWeaponDamageCollider();
                 quickSlotUI.UpdateWeaponQuickSlotUI(true, weaponItem);
             }
             else
             {
+                weaponSlotManager.attackingWeapon = weaponItem;
                 rightHandSlot.LoadWeaponModel(weaponItem);
                 LoadRighttWeaponDamageCollider();
                 quickSlotUI.UpdateWeaponQuickSlotUI(false, weaponItem);
@@ -78,6 +86,18 @@ namespace SG
             leftHandDamageCollider.DisableDamageCollider();
         }
 
+        #endregion
+
+        #region Handle Weapon's Stamina Drainage
+        public void DrainStaminaLightAttack()
+        {
+            playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.lightAttackMultiplier));
+        }
+
+        public void DrainStaminaHeavyAttack()
+        {
+            playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackMultiplier));
+        }
         #endregion
     }
 }

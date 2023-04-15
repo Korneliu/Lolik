@@ -1,29 +1,17 @@
-using UnityEngine;
-
 namespace SG
 {
     public class WeaponPickUp : Interactable
     {
         public WeaponItem weapon;
 
-        public override void Interact(PlayerController playerController)
+        public override void Interact(Player playerController)
         {
-            base.Interact(playerController);
+            PickUpItem(playerController);
         }
 
-        private void PickUpItem(PlayerController playerController)
+        private void PickUpItem(Player playerController)
         {
-            PlayerInventory playerInventory;
-            PlayerMovement playerMovement;
-            Animator animator;
-
-            playerInventory = playerController.GetComponent<PlayerInventory>();
-            playerMovement = playerController.GetComponent<PlayerMovement>();
-            animator = playerController.GetComponentInChildren<Animator>();
-
-            playerMovement.rigidbody.velocity = Vector3.zero;
-            animator.Play("PickUpItem");
-            playerInventory.weaponsInventory.Add(weapon);
+            playerController.PickUpItem(weapon);
             Destroy(gameObject);
         }
     }

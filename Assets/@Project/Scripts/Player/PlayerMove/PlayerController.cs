@@ -18,9 +18,11 @@ namespace SG
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
 
-        [Tooltip("What layers the character uses as ground")]
+        public LayerMask ignoreLayers;
 
+        [Tooltip("What layers the character uses as ground")]
         private Animator _animator;
+
         private Transform _transform;
         private PlayerMovement _movement;
         private CameraController _camera;
@@ -47,7 +49,7 @@ namespace SG
             _animator = animator;
             _playerInput = playerInput;
             Input = input;
-            
+
 
             _movement = movement;
             _camera = cameraController;
@@ -61,6 +63,7 @@ namespace SG
         {
             _movement.JumpAndGravity();
             GroundedCheck();
+            CheckForInteractableObject();
             _movement.Move();
             _animator.SetBool(_animIDAttack, Input.attack);
         }
@@ -95,21 +98,10 @@ namespace SG
         {
             RaycastHit hit;
 
-            if(Physics.SphereCast(_transform.position, 0.3f, _transform.forward, out hit, 1f, _camera.ignoreLayers))
+            if (Physics.SphereCast(_transform.position, 0.3F, _transform.forward, out hit, 1f, ignoreLayers))
             {
-                if(hit.collider.tag == "Interactable")
-                {
-                    Interactable interactableObject = hit.collider.GetComponent<Interactable>();
-
-                    if(interactableObject != null)
-                    {
-                        string interactableText = interactableObject.interactableText;
-                        if (_playerInput.a_Input)
-                        {
-                            hit.collider.GetComponent<Interactable>().Interact(this);
-                        }
-                    }
-                }
+                if (hit.collider.tag == "Interactable" && Input.IsPickUp)
+                    hit.collider.GetComponent<Interactable>().Interact(_transform.GetComponent<Player>());
             }
         }
 

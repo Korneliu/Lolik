@@ -39,7 +39,6 @@ namespace SG
         private Camera _mainCamera;
         private Transform _transform;
         private Animator animator;
-        public Rigidbody rigidbody;
 
         private float _speed;
         private float _animationBlend;
@@ -79,6 +78,7 @@ namespace SG
             PlayerInput input,
             CharacterController controller)
         {
+            this.playerController = playerController;
             _transform = transform;
             Animator = animator;
             _input = input;

@@ -75,5 +75,10 @@ namespace SG
                     transform.position.z), _playerController.GroundedRadius);
         }
 #endif
+        public void PickUpItem(WeaponItem weaponItem)
+        {
+            Animator.Play("PickUp");
+            GetComponent<PlayerInventory>().weaponsInventory.Add(weaponItem);
+        }
     }
 }

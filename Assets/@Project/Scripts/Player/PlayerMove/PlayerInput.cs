@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace SG
 {
@@ -12,8 +13,7 @@ namespace SG
         public bool roll;
         public bool attack;
         public bool sprint;
-
-        public bool a_Input;
+        public bool IsPickUp;
 
         [Header("Movement Settings")] public bool analogMovement;
 
@@ -29,6 +29,12 @@ namespace SG
             _input.Enable();
             _input.PlayerQuickSlots.DPadRight.performed += DPadRightInput;
             _input.PlayerQuickSlots.DPadLeft.performed += DPadLeftInput;
+            _input.PickUpItem.PickUp.performed += PickUp;
+        }
+
+        private void PickUp(InputAction.CallbackContext obj)
+        {
+            IsPickUp = obj.ReadValue<float>() == 1F;
         }
 
         private void DPadLeftInput(InputAction.CallbackContext obj)
@@ -127,9 +133,10 @@ namespace SG
             playerInventory.ChangeLeftWeapon();
         }
 
+        // BAD 
         private void HandleINteractingButtonInput()
         {
-            _input.PickUpItem.PickUp.performed += i => a_Input = true;
+            _input.PickUpItem.PickUp.performed += i => IsPickUp = true;
         }
     }
 }

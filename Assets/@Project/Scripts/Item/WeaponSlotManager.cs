@@ -91,11 +91,13 @@ namespace SG
         #region Handle Weapon's Stamina Drainage
         public void DrainStaminaLightAttack()
         {
+            if (attackingWeapon == null) return;
             playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.lightAttackMultiplier));
         }
 
         public void DrainStaminaHeavyAttack()
         {
+            if (attackingWeapon == null) return;
             playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackMultiplier));
         }
         #endregion

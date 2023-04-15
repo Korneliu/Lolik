@@ -32,6 +32,8 @@ public class PlayerStats : MonoBehaviour
 
         maxStamina = SetMaxStaminaFromStaminaLevel();
         currentStamina = maxStamina;
+        staminaBarPlayer.SetMaxStamina(maxStamina);
+        staminaBarPlayer.SetCurrentStamina(currentStamina);
     }
 
     private int SetMaxHealthFromHealthLevel()

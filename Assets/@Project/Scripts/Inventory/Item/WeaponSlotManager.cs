@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SG
@@ -12,15 +10,20 @@ namespace SG
         DamageCollider leftHandDamageCollider;
         DamageCollider rightHandDamageCollider;
 
+        QuickSlotUI quickSlotUI;
+
         private void Awake()
         {
+            quickSlotUI = FindObjectOfType<QuickSlotUI>();
+
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {
                 if (weaponSlot.isLeftHandSlot)
                 {
                     leftHandSlot = weaponSlot;
-                }else if (weaponSlot.isRightHandSlot)
+                }
+                else if (weaponSlot.isRightHandSlot)
                 {
                     rightHandSlot = weaponSlot;
                 }
@@ -29,15 +32,17 @@ namespace SG
 
         public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
         {
-            if(isLeft)
+            if (isLeft)
             {
                 leftHandSlot.LoadWeaponModel(weaponItem);
                 LoadLeftWeaponDamageCollider();
+                quickSlotUI.UpdateWeaponQuickSlotUI(true, weaponItem);
             }
             else
             {
                 rightHandSlot.LoadWeaponModel(weaponItem);
                 LoadRighttWeaponDamageCollider();
+                quickSlotUI.UpdateWeaponQuickSlotUI(false, weaponItem);
             }
         }
 

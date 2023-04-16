@@ -29,12 +29,6 @@ namespace SG
             _input.Enable();
             _input.PlayerQuickSlots.DPadRight.performed += DPadRightInput;
             _input.PlayerQuickSlots.DPadLeft.performed += DPadLeftInput;
-            _input.PickUpItem.PickUp.performed += PickUp;
-        }
-
-        private void PickUp(InputAction.CallbackContext obj)
-        {
-            IsPickUp = obj.ReadValue<float>() == 1F;
         }
 
         private void DPadLeftInput(InputAction.CallbackContext obj)
@@ -53,6 +47,7 @@ namespace SG
         {
             RollInput(_input.Player.Roll.IsPressed());
             AttackInput(_input.Player.Attack.IsPressed());
+            IsPickUp = _input.PickUpItem.PickUp.IsPressed();
         }
 
         public void OnMove(InputValue value)

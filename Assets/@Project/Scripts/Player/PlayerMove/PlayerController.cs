@@ -96,12 +96,15 @@ namespace SG
 
         public void CheckForInteractableObject()
         {
-            RaycastHit hit;
-
-            if (Physics.SphereCast(_transform.position, 0.3F, _transform.forward, out hit, 1f, ignoreLayers))
+            var a = Physics.OverlapSphere(_transform.position, 0.5F, ignoreLayers);
+            if(a != null && a.Length > 0)
             {
-                if (hit.collider.tag == "Interactable" && Input.IsPickUp)
-                    hit.collider.GetComponent<Interactable>().Interact(_transform.GetComponent<Player>());
+                for(int i = 0; i < a.Length; i++)
+                {
+                    var collider = a[i];
+                    if (collider.tag == "Interactable" && Input.IsPickUp)
+                        collider.GetComponent<Interactable>().Interact(_transform.GetComponent<Player>());
+                }
             }
         }
 

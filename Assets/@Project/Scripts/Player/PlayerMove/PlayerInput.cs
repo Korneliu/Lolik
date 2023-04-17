@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace SG
 {
@@ -8,12 +7,16 @@ namespace SG
     {
         [Header("Character Input Values")] public Vector2 move;
         [SerializeField] PlayerInventory playerInventory;
+        [SerializeField] UIManager uiManager;
         public Vector2 look;
         public bool jump;
         public bool roll;
         public bool attack;
         public bool sprint;
         public bool IsPickUp;
+        public bool inventoryInput;
+
+        public bool inventoryFlag;
 
         [Header("Movement Settings")] public bool analogMovement;
 
@@ -21,20 +24,26 @@ namespace SG
         public bool cursorInputForLook = true;
         private Input _input;
 
-        PlayerInput playerInput;
-
         private void Awake()
         {
             _input = new Input();
             _input.Enable();
             _input.PlayerQuickSlots.DPadRight.performed += DPadRightInput;
             _input.PlayerQuickSlots.DPadLeft.performed += DPadLeftInput;
+            _input.Player.Inventory.performed += OpenWindow;
         }
+
 
         private void DPadLeftInput(InputAction.CallbackContext obj)
         {
             if (obj.ReadValue<float>() == 1F)
                 DPadLeftInput();
+        }
+
+        private void OpenWindow(InputAction.CallbackContext obj)
+        {
+            if (obj.ReadValue<float>() == 1F)
+                OpenWindow();
         }
 
         private void DPadRightInput(InputAction.CallbackContext obj)
@@ -115,7 +124,7 @@ namespace SG
 
         private void SetCursorState(bool newState)
         {
-            Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            //Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         }
 
         public void DPadRightInput()
@@ -128,10 +137,28 @@ namespace SG
             playerInventory.ChangeLeftWeapon();
         }
 
-        // BAD 
-        private void HandleINteractingButtonInput()
+        public void OpenWindow()
         {
-            _input.PickUpItem.PickUp.performed += i => IsPickUp = true;
+            inventoryInput = _input.Player.Inventory.IsPressed();
+
+            if (inventoryInput)
+            {
+                inventoryFlag = !inventoryFlag;
+
+                if (inventoryFlag)
+                {
+                    uiManager.OpenSelectWindow();
+                }
+                else
+                {
+                    uiManager.CloseSelectWindow();
+                }
+            }
+
         }
+
+        //public void CloseWindow()
+        //{
+        //}
     }
 }

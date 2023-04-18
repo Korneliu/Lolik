@@ -378,7 +378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7990202ff3131449861e486cec6ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 2289585}
+  hudWindow: {fileID: 1665812938}
   selectWindow: {fileID: 999455283}
+  weaponInventoryWindow: {fileID: 1263989699}
+  weaponInventorySlotPrefab: {fileID: 1330087975}
+  weaponInventorySlotsParent: {fileID: 2000549471}
 --- !u!1001 &6722330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9927,7 +9932,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -616, y: 0}
-  m_SizeDelta: {x: 650, y: 1000}
+  m_SizeDelta: {x: 650, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773893031
 MonoBehaviour:
@@ -17853,7 +17858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1263989700}
   m_Layer: 5
-  m_Name: Inventory Window
+  m_Name: Weapon Inventory Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18880,6 +18885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330087976}
+  - component: {fileID: 1330087977}
   m_Layer: 5
   m_Name: Weapon Inventory Slot
   m_TagString: Untagged
@@ -18905,9 +18911,22 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
+  m_AnchoredPosition: {x: 65, y: -57}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1330087977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330087975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6addf210be1073841bd41cd39401368a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 544084272}
 --- !u!1001 &1332852649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22582,7 +22601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665812939}
   m_Layer: 5
-  m_Name: HUD
+  m_Name: HUD Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26808,7 +26827,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1972868364
 MonoBehaviour:
@@ -27127,7 +27146,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -616, y: 0}
-  m_SizeDelta: {x: 650, y: 1000}
+  m_SizeDelta: {x: 650, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000549472
 MonoBehaviour:
@@ -27142,15 +27161,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 15
     m_Right: 0
-    m_Top: 0
+    m_Top: 7
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 4, y: 4}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1001 &2014145456

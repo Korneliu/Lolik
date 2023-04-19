@@ -50020,7 +50020,6 @@ GameObject:
   - component: {fileID: 11165622}
   - component: {fileID: 13565622}
   - component: {fileID: 5465622}
-  - component: {fileID: 114000012919263394}
   m_Layer: 0
   m_Name: Hobgoblin_002
   m_TagString: Untagged
@@ -50102,17 +50101,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &114000012919263394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 661595340e84ef64b9c28096a9dcafed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AddRunSpeed: 1
-  AddWalkSpeed: 0.7

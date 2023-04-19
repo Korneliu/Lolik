@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SG
@@ -20,7 +18,7 @@ namespace SG
 
         public void LoadWeaponsOnEquipmentScreen(PlayerInventory playerInventory)
         {
-            for(int i = 0; i < handEquipmentSlotUI.Length; i++)
+            for (int i = 0; i < handEquipmentSlotUI.Length; i++)
             {
                 if (handEquipmentSlotUI[i].rightHandSlot01)
                 {

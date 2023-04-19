@@ -8,6 +8,7 @@ namespace SG
         [Header("Character Input Values")] public Vector2 move;
         [SerializeField] PlayerInventory playerInventory;
         [SerializeField] UIManager uiManager;
+
         public Vector2 look;
         public bool jump;
         public bool roll;
@@ -15,6 +16,7 @@ namespace SG
         public bool sprint;
         public bool IsPickUp;
         public bool inventoryInput;
+        public bool lockOnInput;
 
         public bool inventoryFlag;
 
@@ -124,7 +126,7 @@ namespace SG
 
         private void SetCursorState(bool newState)
         {
-            //Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         }
 
         public void DPadRightInput()
@@ -160,5 +162,7 @@ namespace SG
             }
 
         }
+
+       
     }
 }

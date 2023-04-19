@@ -12,7 +12,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -345,10 +344,10 @@ public partial class @Input: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0d69eb08-eb28-40fb-a777-ff063103373a"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""LockOn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1521,8 +1520,6 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     private int m_XRSchemeIndex = -1;
-    internal static Vector3 mousePosition;
-
     public InputControlScheme XRScheme
     {
         get

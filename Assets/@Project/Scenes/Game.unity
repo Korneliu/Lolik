@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3423965, g: 0.4327667, b: 0.57318896, a: 1}
+  m_IndirectSpecularColor: {r: 0.3423956, g: 0.432766, b: 0.57318854, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   playerInventory: {fileID: 2289585}
-  uiManager: {fileID: 0}
+  uiManager: {fileID: 2289587}
   look: {x: 0, y: 0}
   jump: 0
   roll: 0
@@ -4186,7 +4186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
 --- !u!23 &262090369
 MeshRenderer:
@@ -5530,7 +5530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: d8ebad4dddf4a194f919d8548308fd11, type: 2}
 --- !u!23 &340872643
 MeshRenderer:
@@ -10501,7 +10501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &644898684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13850,7 +13850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
 --- !u!135 &865128351
 SphereCollider:
@@ -14617,7 +14617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: e1f9a74d0cf0c824a83e1ed2de5742cd, type: 2}
 --- !u!23 &948881177
 MeshRenderer:
@@ -14855,7 +14855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: d8ebad4dddf4a194f919d8548308fd11, type: 2}
 --- !u!23 &951958481
 MeshRenderer:
@@ -18023,7 +18023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: e1f9a74d0cf0c824a83e1ed2de5742cd, type: 2}
 --- !u!23 &1097334575
 MeshRenderer:
@@ -20165,7 +20165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: e1f9a74d0cf0c824a83e1ed2de5742cd, type: 2}
 --- !u!23 &1202451868
 MeshRenderer:
@@ -21189,9 +21189,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 1263014369}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 1523853808}
-  - {fileID: 1618517033}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: -1668886256
     m_VirtualCamera: {fileID: 1523853808}
@@ -21916,7 +21914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: d8ebad4dddf4a194f919d8548308fd11, type: 2}
 --- !u!23 &1290446239
 MeshRenderer:
@@ -25917,6 +25915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618517034}
   - component: {fileID: 1618517033}
+  - component: {fileID: 1618517035}
   m_Layer: 0
   m_Name: CM vcam2
   m_TagString: Untagged
@@ -25969,7 +25968,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618517032}
-  m_LocalRotation: {x: 0.11554951, y: -0.00000001815073, z: 0.0000000021114512, w: 0.99330175}
+  m_LocalRotation: {x: 0.115549505, y: 0.000000020652653, z: -0.0000000024024962, w: 0.99330175}
   m_LocalPosition: {x: -4.547558, y: -6.7234693, z: 7.8165684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25978,6 +25977,36 @@ Transform:
   m_Father: {fileID: 1263014371}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618517035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618517032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1001 &1625886848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28138,7 +28167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.6
   interactableText: Pick Up Item
-  pickUpPanel: {fileID: 0}
+  pickUpPanel: {fileID: 1138993186}
   weapon: {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
 --- !u!23 &1766673036
 MeshRenderer:

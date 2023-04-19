@@ -1,6 +1,7 @@
 ﻿using System;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SG
 {
@@ -34,10 +35,12 @@ namespace SG
 
         private UnityEngine.InputSystem.PlayerInput _playerInput;
         private PlayerInput _input;
+        private Input _Input;
 
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
 
+        private bool isEnemyCamera;
 
         private bool IsCurrentDeviceMouse
         {
@@ -55,21 +58,30 @@ namespace SG
         {
             _playerInput = playerInput;
             _input = input;
+            _Input = new Input();
+            _Input.Enable();
+            _Input.Player.LockOn.performed += SwapCamera;
         }
 
         public void Update()
         {
             _enemyBody.LookAt(_camEnemy.LookAt);
-
-            // if (UnityEngine.Input.GetKeyDown(KeyCode.Q))
-            // {
-            //     SetStateEnemy(_camEnemy.LookAt);
-            // }
-            // if (UnityEngine.Input.GetKeyDown(KeyCode.R))
-            // {
-            //     SetStatePlayer();
-            // }
         }
+
+        private void SwapCamera(InputAction.CallbackContext obj)
+        {
+            isEnemyCamera = !isEnemyCamera;
+
+            if (isEnemyCamera)
+            {
+                SetStateEnemy(_camEnemy.LookAt);
+            }
+            else
+            {
+                SetStatePlayer();
+            }
+        }
+
 
         public void CameraRotation()
         {

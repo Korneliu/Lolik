@@ -17,15 +17,15 @@ MonoBehaviour:
     m_To: CM vcam1
     m_Blend:
       m_Style: 7
-      m_Time: 2
+      m_Time: 0.5
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0
-          outSlope: 0
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -33,8 +33,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 2
-          outSlope: 2
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_To: CM vcam2
     m_Blend:
       m_Style: 7
-      m_Time: 2
+      m_Time: 0.5
       m_CustomCurve:
         serializedVersion: 2
         m_Curve:

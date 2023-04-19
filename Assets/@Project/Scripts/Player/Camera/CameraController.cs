@@ -7,7 +7,13 @@ namespace SG
     [Serializable]
     public class CameraController
     {
+        private const string StatePlayer = "Player", StateEnemy = "Enemy";
+        
         private const float _threshold = 0.01f;
+
+        [SerializeField] private Animator _animatorState;
+        [SerializeField] private CinemachineVirtualCamera _camEnemy;
+        [SerializeField] private Transform _enemyBody;
 
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
@@ -40,7 +46,7 @@ namespace SG
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
                 return _playerInput.currentControlScheme == "KeyboardMouse";
 #else
-				return false;
+                return false;
 #endif
             }
         }
@@ -49,6 +55,20 @@ namespace SG
         {
             _playerInput = playerInput;
             _input = input;
+        }
+
+        public void Update()
+        {
+            _enemyBody.LookAt(_camEnemy.LookAt);
+
+            // if (UnityEngine.Input.GetKeyDown(KeyCode.Q))
+            // {
+            //     SetStateEnemy(_camEnemy.LookAt);
+            // }
+            // if (UnityEngine.Input.GetKeyDown(KeyCode.R))
+            // {
+            //     SetStatePlayer();
+            // }
         }
 
         public void CameraRotation()
@@ -74,5 +94,14 @@ namespace SG
             virtualCamera.Follow = virtualCamera.LookAt = CinemachineCameraTarget.transform;
             _input.cursorInputForLook = _input.cursorLocked = true;
         }
+
+        public void SetStatePlayer() => _animatorState.Play(StatePlayer);
+
+        public void SetStateEnemy(Transform target)
+        {
+            _camEnemy.LookAt = target;
+            _animatorState.Play(StateEnemy);
+        }
+
     }
 }

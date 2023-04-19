@@ -14,6 +14,8 @@ namespace SG
 
         [SerializeField] private PlayerMovement _playerMovement;
 
+        [SerializeField] private CinemachineVirtualCamera _camPlayer;
+
         private Animator _animator;
 
         private Animator Animator
@@ -40,13 +42,14 @@ namespace SG
         private void OnEnable()
         {
             _playerController._playerInput.enabled = true;
-            SetCamera(FindObjectOfType<CinemachineVirtualCamera>());
+            SetCamera(_camPlayer);
         }
 
         private void Update()
         {
             if (Animator == null) return;
             _playerController.Update();
+            _cameraController.Update();
         }
 
         private void LateUpdate()

@@ -1,16 +1,8 @@
+using SG;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : CharacterStats
 {
-    [SerializeField] int healthLevel = 10;
-    [SerializeField] int maxHealth;
-    [SerializeField] int currentHealth;
-
-    [SerializeField] int staminaLevel = 10;
-    [SerializeField] int maxStamina;
-    [SerializeField] int currentStamina;
-
-
     private Animator animator;
 
     public HealthBarPlayer healthBarPlayer;

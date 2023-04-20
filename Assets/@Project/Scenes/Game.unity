@@ -16248,7 +16248,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b07350ffa4187bb4eb3099981d57b58c, type: 2}
 --- !u!1001 &1046403816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16545,6 +16545,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 619362499}
     m_Modifications:
+    - target: {fileID: 3036748506658787490, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416613938121778604, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8528847680351253258, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_Name
       value: Assasin
@@ -16555,11 +16563,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9013775895771507120, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.651
+      value: 10.214
       objectReference: {fileID: 0}
     - target: {fileID: 9013775895771507120, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.092
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 9013775895771507120, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25580,7 +25588,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618517032}
-  m_LocalRotation: {x: 0.043470677, y: 0.24371916, z: -0.0109357275, w: 0.9688094}
+  m_LocalRotation: {x: 0.030509688, y: 0.23185621, z: -0.0072758063, w: 0.97224426}
   m_LocalPosition: {x: -4.547558, y: -6.7234693, z: 7.8165684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29940,6 +29948,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 619362499}
     m_Modifications:
+    - target: {fileID: 4586647285551013092, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: isPerformingAction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6592282606075829713, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: _animator
       value: 
@@ -29954,11 +29966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9013775895771507120, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.47
+      value: -1.48
       objectReference: {fileID: 0}
     - target: {fileID: 9013775895771507120, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.07
+      value: -1.91
       objectReference: {fileID: 0}
     - target: {fileID: 9013775895771507120, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SG
@@ -7,7 +5,7 @@ namespace SG
     public class EnemyManager : MonoBehaviour
     {
         EnemyLocomotionManager enemyLocomotionManager;
-        bool isPerformingAction;
+        public bool isPerformingAction;
 
         [Header("A.I Settings")]
         public float detectionRadius = 26;
@@ -21,6 +19,11 @@ namespace SG
 
         private void Update()
         {
+
+        }
+
+        private void FixedUpdate()
+        {
             HandleCurrentAction();
         }
 
@@ -28,8 +31,12 @@ namespace SG
         {
             if (enemyLocomotionManager.currentTarget == null)
             {
-
-            }enemyLocomotionManager.HandleDetection();
+                enemyLocomotionManager.HandleDetection();
+            }
+            else
+            {
+                enemyLocomotionManager.HandleMoveToTarget();
+            }
         }
     }
 }

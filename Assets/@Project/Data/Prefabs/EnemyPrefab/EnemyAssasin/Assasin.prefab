@@ -6596,12 +6596,13 @@ GameObject:
   m_Component:
   - component: {fileID: 9013775895771507120}
   - component: {fileID: 1047438279618797604}
+  - component: {fileID: 3672322931906426032}
   - component: {fileID: 4586647285551013092}
   - component: {fileID: 209794319487379111}
   - component: {fileID: 6599944743825343704}
-  - component: {fileID: 8259243092329375294}
   - component: {fileID: 5933315714194082893}
   - component: {fileID: 4416613938121778604}
+  - component: {fileID: 3036748506658787490}
   m_Layer: 7
   m_Name: Assasin
   m_TagString: Enemy
@@ -6646,6 +6647,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3672322931906426032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528847680351253258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df93b23505d79640abe09be87f4abac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1047438279618797604}
 --- !u!114 &4586647285551013092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,6 +6672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f833fdb3130292b489fa691b7d5514ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPerformingAction: 0
   detectionRadius: 26
   maximumDetectionAngle: 50
   minimumDetectionAngle: -50
@@ -6691,32 +6706,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213790a7d4f87aa4fbcb6be0b1fc780c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyRigidBody: {fileID: 4416613938121778604}
   currentTarget: {fileID: 0}
   detectionLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!195 &8259243092329375294
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8528847680351253258}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  distanceFromTarget: 0
+  stoppingDistance: 1
+  rotationSpeed: 25
 --- !u!136 &5933315714194082893
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6745,8 +6742,30 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!195 &3036748506658787490
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528847680351253258}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8657495963139905516
 GameObject:
   m_ObjectHideFlags: 0

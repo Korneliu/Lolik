@@ -12,8 +12,8 @@ namespace SG
 
         public WeaponItem unarmedWeapon;
 
-        public WeaponItem[] weaponInRightHandSlots = new WeaponItem[1];
-        public WeaponItem[] weaponInLeftHandSlots = new WeaponItem[1];
+        public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
+        public WeaponItem[] weaponsInLeftHandSlots = new WeaponItem[1];
 
         public int currentRightWeaponIndex = -1;
         public int currentLeftWeaponIndex = -1;
@@ -27,15 +27,17 @@ namespace SG
 
         private void Start()
         {
-            rightWeapon = unarmedWeapon;
-            leftWeapon = unarmedWeapon;
+            rightWeapon = weaponsInRightHandSlots[0];
+            leftWeapon = weaponsInLeftHandSlots[0];
+            weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
+            weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
         }
 
         public void ChangeRightWeapon()
         {
             currentRightWeaponIndex++;
 
-            if (currentRightWeaponIndex > weaponInRightHandSlots.Length - 1)
+            if (currentRightWeaponIndex > weaponsInRightHandSlots.Length - 1)
             {
                 currentRightWeaponIndex = -1;
                 rightWeapon = unarmedWeapon;
@@ -43,8 +45,8 @@ namespace SG
             }
             else
             {
-                rightWeapon = weaponInRightHandSlots[currentRightWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponInRightHandSlots[currentRightWeaponIndex], false);
+                rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
             }
         }
 
@@ -52,7 +54,7 @@ namespace SG
         {
             currentLeftWeaponIndex++;
 
-            if (currentLeftWeaponIndex > weaponInLeftHandSlots.Length - 1)
+            if (currentLeftWeaponIndex > weaponsInLeftHandSlots.Length - 1)
             {
                 currentLeftWeaponIndex = -1;
                 leftWeapon = unarmedWeapon;
@@ -60,8 +62,8 @@ namespace SG
             }
             else
             {
-                leftWeapon = weaponInLeftHandSlots[currentLeftWeaponIndex];
-                weaponSlotManager.LoadWeaponOnSlot(weaponInLeftHandSlots[currentLeftWeaponIndex], true);
+                leftWeapon = weaponsInLeftHandSlots[currentLeftWeaponIndex];
+                weaponSlotManager.LoadWeaponOnSlot(weaponsInLeftHandSlots[currentLeftWeaponIndex], true);
             }
         }
     }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,38 +11,32 @@ namespace SG
         public bool rightHandSlot02Selected;
         public bool leftHandSlot01Selected;
         public bool leftHandSlot02Selected;
-
-        List<HandEquipmentSlotUI> handEquipmentSlotUI = new List<HandEquipmentSlotUI>();
+        public HandEquipmentSlotUI[] handEquipmentSlotUI;
 
         private void Start()
         {
-            handEquipmentSlotUI = GetComponentsInChildren<HandEquipmentSlotUI>().ToList();
-        }
 
-        //private void OnEnable()
-        //{
-        //    LoadWeaponsOnEquipmentScreen(FindObjectOfType<PlayerInventory>());
-        //}
+        }
 
         public void LoadWeaponsOnEquipmentScreen(PlayerInventory playerInventory)
         {
-            for (int i = 0; i < handEquipmentSlotUI.Count; i++)
+            for (int i = 0; i < handEquipmentSlotUI.Length; i++)
             {
                 if (handEquipmentSlotUI[i].rightHandSlot01)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponInRightHandSlots[0]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInRightHandSlots[0]);
                 }
                 else if (handEquipmentSlotUI[i].rightHandSlot02)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponInRightHandSlots[1]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInRightHandSlots[1]);
                 }
                 else if (handEquipmentSlotUI[i].leftHandSlot01)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponInLeftHandSlots[0]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[0]);
                 }
-                else
+                else if (handEquipmentSlotUI[i].leftHandSlot02)
                 {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponInLeftHandSlots[1]);
+                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[1]);
                 }
             }
         }

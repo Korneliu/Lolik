@@ -26,7 +26,7 @@ namespace SG
 
         private void Awake()
         {
-           
+           weaponInventorySlots = GetComponentsInChildren<WeaponInventorySlot>();
         }
 
         private void Start()

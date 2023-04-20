@@ -34,7 +34,7 @@ namespace SG
                 {
                     handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[0]);
                 }
-                else if (handEquipmentSlotUI[i].leftHandSlot02)
+                else
                 {
                     handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[1]);
                 }

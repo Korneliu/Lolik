@@ -5392,7 +5392,7 @@ MonoBehaviour:
   radius: 0.6
   interactableText: Pick Up Item
   pickUpPanel: {fileID: 1138993186}
-  weapon: {fileID: 11400000, guid: 12a15a47bb773f14495109bb883603ae, type: 2}
+  weapon: {fileID: 11400000, guid: e1f9a74d0cf0c824a83e1ed2de5742cd, type: 2}
 --- !u!23 &340872643
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14384,7 +14384,7 @@ MonoBehaviour:
   radius: 0.6
   interactableText: Pick Up Item
   pickUpPanel: {fileID: 1138993186}
-  weapon: {fileID: 11400000, guid: b24d805a7b19ad54fbc5257f933341a8, type: 2}
+  weapon: {fileID: 11400000, guid: d8ebad4dddf4a194f919d8548308fd11, type: 2}
 --- !u!23 &948881177
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14622,7 +14622,7 @@ MonoBehaviour:
   radius: 0.6
   interactableText: Pick Up Item
   pickUpPanel: {fileID: 1138993186}
-  weapon: {fileID: 11400000, guid: ad770eb3f9452264087bf5e3e724869e, type: 2}
+  weapon: {fileID: 11400000, guid: 12a15a47bb773f14495109bb883603ae, type: 2}
 --- !u!23 &951958481
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21491,7 +21491,7 @@ MonoBehaviour:
   radius: 0.6
   interactableText: Pick Up Item
   pickUpPanel: {fileID: 1138993186}
-  weapon: {fileID: 11400000, guid: d8ebad4dddf4a194f919d8548308fd11, type: 2}
+  weapon: {fileID: 11400000, guid: 056c0c507e1bb5e4a9a0d85b57ede4c3, type: 2}
 --- !u!23 &1290446239
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ namespace SG
             {
                 uiManager.leftHandSlot01Selected = true;
             }
-            else if(leftHandSlot02)
+            else
             {
                 uiManager.leftHandSlot02Selected = true;
             }

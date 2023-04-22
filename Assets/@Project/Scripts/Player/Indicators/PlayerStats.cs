@@ -49,6 +49,7 @@ public class PlayerStats : CharacterStats
 
         if (currentHealth <= 0)
         {
+            Die();
             animator.Play("Death");
         }
     }
@@ -62,5 +63,11 @@ public class PlayerStats : CharacterStats
         {
 
         }
+    }
+
+    public void Die()
+    {
+        Collider playerCollider = GetComponentInChildren<Collider>();
+        playerCollider.enabled = false;
     }
 }

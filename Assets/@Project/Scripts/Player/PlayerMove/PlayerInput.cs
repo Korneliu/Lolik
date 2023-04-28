@@ -8,6 +8,7 @@ namespace SG
         [Header("Character Input Values")] public Vector2 move;
         [SerializeField] PlayerInventory playerInventory;
         [SerializeField] UIManager uiManager;
+        [SerializeField] PlayerStats playerStats;
 
         public Vector2 look;
         public bool jump;

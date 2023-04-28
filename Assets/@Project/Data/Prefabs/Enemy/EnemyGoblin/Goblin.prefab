@@ -25681,7 +25681,7 @@ MonoBehaviour:
   staminaLevel: 10
   maxStamina: 0
   currentStamina: 0
-  target: {fileID: 0}
+  target: {fileID: 1623139866415788782, guid: a63d92c4bf0273d4ea42dc31571db0bf, type: 3}
   distanceToFollow: 10
   distanceToStop: 0.5
   distanceToStopFollowing: 15

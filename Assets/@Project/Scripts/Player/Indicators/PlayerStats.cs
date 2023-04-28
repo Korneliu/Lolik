@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
+    [SerializeField] float rollForward = 1f;
+
     private Animator animator;
 
     public HealthBarPlayer healthBarPlayer;
@@ -26,6 +28,11 @@ public class PlayerStats : CharacterStats
         currentStamina = maxStamina;
         staminaBarPlayer.SetMaxStamina(maxStamina);
         staminaBarPlayer.SetCurrentStamina(currentStamina);
+    }
+
+    public void Roll()
+    {
+        transform.Translate(Vector3.forward * rollForward * Time.deltaTime);
     }
 
     private int SetMaxHealthFromHealthLevel()

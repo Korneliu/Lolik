@@ -55,7 +55,7 @@ namespace SG
             }
             else if (distanceToTarget > distanceToStopFollowing)
             {
-                navMeshAgent.SetDestination(startingPosition); // Вернуться на начальную позицию
+                //navMeshAgent.SetDestination(startingPosition);
             }
             
         }

@@ -16,6 +16,8 @@ namespace SG
 
         [SerializeField] private CinemachineVirtualCamera _camPlayer;
 
+        [SerializeField] private PlayerStats _playerStats;
+
         private Animator _animator;
 
         private Animator Animator
@@ -80,6 +82,7 @@ namespace SG
 #endif
         public void PickUpItem(WeaponItem weaponItem)
         {
+            _playerMovement.MoveSpeed = 0f;
             Animator.Play("PickUp");
             GetComponent<PlayerInventory>().weaponsInventory.Add(weaponItem);
         }

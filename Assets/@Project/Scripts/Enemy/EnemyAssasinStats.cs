@@ -53,11 +53,6 @@ namespace SG
                     navMeshAgent.SetDestination(transform.position);
                 }
             }
-            else if (distanceToTarget > distanceToStopFollowing)
-            {
-                //navMeshAgent.SetDestination(startingPosition);
-            }
-            
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -77,6 +72,7 @@ namespace SG
                 currentHealth = 0;
                 Die();
                 animator.Play("Death");
+                distanceToFollow = 0f;
             }
         }
 

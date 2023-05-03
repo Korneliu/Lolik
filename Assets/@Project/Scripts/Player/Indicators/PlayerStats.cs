@@ -1,8 +1,12 @@
 using SG;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
+    PlayerInput playerInput;
+    AnimatorManager animatorManager;
+
     [SerializeField] float rollForward = 1f;
 
     private Animator animator;
@@ -10,8 +14,12 @@ public class PlayerStats : CharacterStats
     public HealthBarPlayer healthBarPlayer;
     public StaminaBarPlayer staminaBarPlayer;
 
+    public float staminaRegenerationAmount = 1;
+    public float staminaRegenTimer = 0f;
+
     private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         healthBarPlayer = FindObjectOfType<HealthBarPlayer>();
         staminaBarPlayer = FindObjectOfType<StaminaBarPlayer>();
         animator = GetComponent<Animator>();
@@ -41,7 +49,7 @@ public class PlayerStats : CharacterStats
         return maxHealth;
     }
 
-    private int SetMaxStaminaFromStaminaLevel()
+    private float SetMaxStaminaFromStaminaLevel()
     {
         maxStamina = staminaLevel * 10;
         return maxStamina;
@@ -63,7 +71,10 @@ public class PlayerStats : CharacterStats
 
     public void TakeStaminaDamage(int damage)
     {
-        currentStamina = currentStamina - damage; 
+        if (playerInput.isInvulnerable)
+            return;
+
+        currentStamina = currentStamina - damage;
         staminaBarPlayer.SetCurrentStamina(currentStamina);
 
         if (currentStamina > maxStamina)
@@ -76,5 +87,23 @@ public class PlayerStats : CharacterStats
     {
         Collider playerCollider = GetComponentInChildren<Collider>();
         playerCollider.enabled = false;
+    }
+
+    public void RegenerateStamina()
+    {
+        if (playerInput.isInvulnerable)
+        {
+            staminaRegenTimer = 0;
+        }
+        else
+        {
+            staminaRegenTimer += Time.deltaTime;
+
+            if (currentStamina < maxStamina && staminaRegenTimer > 1f)
+            {
+                currentStamina += staminaRegenerationAmount * Time.deltaTime;
+                staminaBarPlayer.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
+            }
+        }
     }
 }

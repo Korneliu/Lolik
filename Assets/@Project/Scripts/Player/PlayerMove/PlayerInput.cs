@@ -9,6 +9,7 @@ namespace SG
         [SerializeField] PlayerInventory playerInventory;
         [SerializeField] UIManager uiManager;
         [SerializeField] PlayerStats playerStats;
+        [SerializeField] Animator animator;
 
         public Vector2 look;
         public bool jump;
@@ -18,6 +19,7 @@ namespace SG
         public bool IsPickUp;
         public bool inventoryInput;
         public bool lockOnInput;
+        public bool isInvulnerable;
 
         public bool inventoryFlag;
 
@@ -60,6 +62,8 @@ namespace SG
             RollInput(_input.Player.Roll.IsPressed());
             AttackInput(_input.Player.Attack.IsPressed());
             IsPickUp = _input.PickUpItem.PickUp.IsPressed();
+
+            playerStats.RegenerateStamina();
         }
 
         public void OnMove(InputValue value)
@@ -162,6 +166,16 @@ namespace SG
                 }
             }
 
+        }
+
+        public void EnableIsInvulnerable()
+        {
+            animator.SetBool("isInvulnerable", true);
+        }
+
+        public void DisableIsInvulnerable()
+        {
+            animator.SetBool("isInvulnerable", false);
         }
     }
 }

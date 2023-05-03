@@ -82,7 +82,6 @@ namespace SG
 #endif
         public void PickUpItem(WeaponItem weaponItem)
         {
-            _playerMovement.MoveSpeed = 0f;
             Animator.Play("PickUp");
             GetComponent<PlayerInventory>().weaponsInventory.Add(weaponItem);
         }

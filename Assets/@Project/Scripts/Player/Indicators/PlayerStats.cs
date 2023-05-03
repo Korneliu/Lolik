@@ -1,5 +1,4 @@
 using SG;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerStats : CharacterStats
@@ -14,8 +13,9 @@ public class PlayerStats : CharacterStats
     public HealthBarPlayer healthBarPlayer;
     public StaminaBarPlayer staminaBarPlayer;
 
-    public float staminaRegenerationAmount = 1;
-    public float staminaRegenTimer = 0f;
+    public float staminaRegenerationAmount = 10f;
+    public float timer = 0f;
+    public float recoveryTime = 1f;
 
     private void Awake()
     {
@@ -91,19 +91,20 @@ public class PlayerStats : CharacterStats
 
     public void RegenerateStamina()
     {
-        if (playerInput.isInvulnerable)
+        if (currentStamina < maxStamina && timer < recoveryTime)
         {
-            staminaRegenTimer = 0;
+            timer += Time.deltaTime;
         }
-        else
+        else if (currentStamina < maxStamina && timer >= recoveryTime)
         {
-            staminaRegenTimer += Time.deltaTime;
+            currentStamina += staminaRegenerationAmount * Time.deltaTime;
+            staminaBarPlayer.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
 
-            if (currentStamina < maxStamina && staminaRegenTimer > 1f)
+            if (currentStamina >= maxStamina)
             {
-                currentStamina += staminaRegenerationAmount * Time.deltaTime;
-                staminaBarPlayer.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
+                timer = 0f;
             }
         }
     }
+
 }

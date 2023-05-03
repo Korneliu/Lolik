@@ -42,7 +42,7 @@ namespace SG
 
             if (collision.tag == "Enemy")
             {
-                EnemyAssasinStats enemyStats = collision.GetComponent<EnemyAssasinStats>();
+                EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
 
                 if (enemyStats != null)
                 {

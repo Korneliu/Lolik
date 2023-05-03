@@ -13,5 +13,7 @@ namespace SG
         public int staminaLevel = 10;
         public float maxStamina;
         public float currentStamina;
+
+        public int soulCount = 0;
     }
 }

@@ -107,4 +107,9 @@ public class PlayerStats : CharacterStats
         }
     }
 
+    public void AddSouls(int souls)
+    {
+        soulCount = soulCount + souls;
+    }
+
 }

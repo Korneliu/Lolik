@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SG
 {
-    public abstract class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviour
     {
         public float radius = 0.6f;
         public string interactableText;
@@ -13,6 +13,9 @@ namespace SG
             Gizmos.DrawWireSphere(transform.position, radius);
         }
 
-        public abstract void Interact(Player playerController);
+        public virtual  void Interact(Player playerController)
+        {
+
+        }
     }
 }

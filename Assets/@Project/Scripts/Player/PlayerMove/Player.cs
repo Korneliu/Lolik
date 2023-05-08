@@ -80,10 +80,20 @@ namespace SG
                     transform.position.z), _playerController.GroundedRadius);
         }
 #endif
+
+        #region Player Interactions
+
         public void PickUpItem(WeaponItem weaponItem)
         {
             Animator.Play("PickUp");
             GetComponent<PlayerInventory>().weaponsInventory.Add(weaponItem);
         }
+
+        public void OpenChestInteraction(Transform playerStandsHereWhenOpeningChest)
+        {
+            transform.position = playerStandsHereWhenOpeningChest.transform.position;
+        }
+
+        #endregion
     }
 }

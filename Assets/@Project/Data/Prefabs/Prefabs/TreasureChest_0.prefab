@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4920761629068530}
   - component: {fileID: 95486374514297802}
-  - component: {fileID: 6540171448881726863}
   - component: {fileID: 5883963809701044982}
+  - component: {fileID: 1470522052}
   m_Layer: 0
   m_Name: TreasureChest_0
   m_TagString: Untagged
@@ -48,7 +48,7 @@ Animator:
   m_GameObject: {fileID: 1001939953861660}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b48e647b25cdea24e83bbf62473dedfd, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0c6fbd1251883c4eba347b2d5213df4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -59,20 +59,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &6540171448881726863
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001939953861660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &5883963809701044982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,8 +71,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d55ff45851dbe46ae2b3f5adde1d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.6
+  radius: 0.7
   interactableText: Open Chest
+  item: {fileID: 0}
+  openChestPanel: {fileID: 0}
+--- !u!135 &1470522052
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001939953861660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1215045575723198
 GameObject:
   m_ObjectHideFlags: 0

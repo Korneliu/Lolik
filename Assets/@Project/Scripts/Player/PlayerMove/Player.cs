@@ -89,11 +89,6 @@ namespace SG
             GetComponent<PlayerInventory>().weaponsInventory.Add(weaponItem);
         }
 
-        public void OpenChestInteraction(Transform playerStandsHereWhenOpeningChest)
-        {
-            transform.position = playerStandsHereWhenOpeningChest.transform.position;
-        }
-
         #endregion
     }
 }

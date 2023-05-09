@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 1745798003488732474}
   - component: {fileID: 3428798001156930207}
   - component: {fileID: 608406875743440469}
-  - component: {fileID: 8999162531214913304}
-  - component: {fileID: 7152300044803157143}
+  - component: {fileID: 7879428692216426587}
+  - component: {fileID: 1808191609}
   m_Layer: 6
   m_Name: SM_campfire_005_AmbienceFX
   m_TagString: Untagged
@@ -180,8 +180,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8999162531214913304
-BoxCollider:
+--- !u!114 &7879428692216426587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401044601270726528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efda5a90948007541b9abe91c8ecf2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  radius: 0.6
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  timer: 1
+--- !u!135 &1808191609
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -191,21 +209,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8369517, z: 1}
-  m_Center: {x: -0.11171186, y: 0.9146404, z: -0.056202054}
---- !u!114 &7152300044803157143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401044601270726528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 884d7b1136b0ba748bfbc9750a76fc06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
+  m_Radius: 0.73
+  m_Center: {x: -0.11171189, y: 0.19592026, z: -0.056202024}
 --- !u!1 &5366271758512731984
 GameObject:
   m_ObjectHideFlags: 0

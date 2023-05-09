@@ -16,7 +16,8 @@ namespace SG
         public bool roll;
         public bool attack;
         public bool sprint;
-        public bool IsPickUp;
+        public bool isPickUp;
+        public bool openChest;
         public bool inventoryInput;
         public bool lockOnInput;
         public bool isInvulnerable;
@@ -61,7 +62,8 @@ namespace SG
         {
             RollInput(_input.Player.Roll.IsPressed());
             AttackInput(_input.Player.Attack.IsPressed());
-            IsPickUp = _input.PickUpItem.PickUp.IsPressed();
+            isPickUp = _input.PickUpItem.PickUp.IsPressed();
+            openChest = _input.PickUpItem.PickUp.IsPressed();
 
             playerStats.RegenerateStamina();
         }

@@ -101,7 +101,7 @@ namespace SG
                 for (int i = 0; i < a.Length; i++)
                 {
                     var collider = a[i];
-                    if (collider.tag == "Interactable" && Input.IsPickUp)
+                    if (collider.tag == "Interactable" && Input.isPickUp)
                         collider.GetComponent<Interactable>().Interact(_transform.GetComponent<Player>());
                 }
             }

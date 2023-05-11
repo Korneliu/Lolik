@@ -1,14 +1,16 @@
-using SharpNav.Crowds;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace SG
 {
-    public class EnemyStats : CharacterStats
+    public class EnemyStats : MonoBehaviour
     {
         private const string AnimAttack = "Attack", AnimWalk = "Walk", AnimIdle = "Idle";
 
         Animator animator;
+        DamageCollider damageCollider;
 
         public int soulsAwardedOnDeath = 100;
 
@@ -18,6 +20,13 @@ namespace SG
         public float distanceToStopFollowing = 15f;
         public Vector3 startingPosition;
         private NavMeshAgent navMeshAgent;
+
+        public int currentHealth;
+        public int maxHealth;
+        public int healthLevel = 10;
+
+        public GameObject enemy;
+        public Slider healthSlider;
 
         private void Awake()
         {
@@ -31,6 +40,11 @@ namespace SG
 
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
+
+            maxHealth = enemy.GetComponent<EnemyStats>().maxHealth;
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+            healthSlider.gameObject.SetActive(false);
         }
 
         void Update()
@@ -55,6 +69,29 @@ namespace SG
                     navMeshAgent.SetDestination(transform.position);
                 }
             }
+
+            if (damageCollider == true)
+            {
+                
+                currentHealth = enemy.GetComponent<EnemyStats>().currentHealth;
+                healthSlider.value = currentHealth;
+            }
+            else
+            {
+                healthSlider.gameObject.SetActive(false);
+            }
+        }
+
+        public void ShowHealthSlider()
+        {
+            healthSlider.gameObject.SetActive(true);
+            StartCoroutine(HideHealthSlider());
+        }
+
+        private IEnumerator HideHealthSlider()
+        {
+            yield return new WaitForSeconds(2f);
+            healthSlider.gameObject.SetActive(false);
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -104,6 +141,7 @@ namespace SG
                 }
             }
         }
+
     }
 }
 

@@ -176,14 +176,18 @@ MonoBehaviour:
   move: {x: 0, y: 0}
   playerInventory: {fileID: 1623139866415788787}
   uiManager: {fileID: 1623139866415788785}
+  playerStats: {fileID: 1623139866415788781}
+  animator: {fileID: 1623139866415788780}
   look: {x: 0, y: 0}
   jump: 0
   roll: 0
   attack: 0
   sprint: 0
-  IsPickUp: 0
+  isPickUp: 0
+  openChest: 0
   inventoryInput: 0
   lockOnInput: 0
+  isInvulnerable: 0
   inventoryFlag: 0
   analogMovement: 0
   cursorLocked: 1
@@ -230,6 +234,7 @@ MonoBehaviour:
     JumpTimeout: 0.5
     FallTimeout: 0.15
   _camPlayer: {fileID: 0}
+  _playerStats: {fileID: 0}
 --- !u!114 &1623139866415788781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,8 +253,13 @@ MonoBehaviour:
   staminaLevel: 10
   maxStamina: 0
   currentStamina: 0
+  soulCount: 0
+  rollForward: 5
   healthBarPlayer: {fileID: 0}
   staminaBarPlayer: {fileID: 0}
+  staminaRegenerationAmount: 10
+  timer: 0
+  recoveryTime: 1
 --- !u!114 &1623139866415788784
 MonoBehaviour:
   m_ObjectHideFlags: 0

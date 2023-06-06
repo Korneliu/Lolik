@@ -26,7 +26,6 @@ namespace SG
         public int healthLevel = 10;
 
         public GameObject enemy;
-        public Slider healthSlider;
 
         private void Awake()
         {
@@ -42,9 +41,6 @@ namespace SG
             currentHealth = maxHealth;
 
             maxHealth = enemy.GetComponent<EnemyStats>().maxHealth;
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
-            healthSlider.gameObject.SetActive(false);
         }
 
         void Update()
@@ -74,24 +70,7 @@ namespace SG
             {
                 
                 currentHealth = enemy.GetComponent<EnemyStats>().currentHealth;
-                healthSlider.value = currentHealth;
-            }
-            else
-            {
-                healthSlider.gameObject.SetActive(false);
-            }
-        }
-
-        public void ShowHealthSlider()
-        {
-            healthSlider.gameObject.SetActive(true);
-            StartCoroutine(HideHealthSlider());
-        }
-
-        private IEnumerator HideHealthSlider()
-        {
-            yield return new WaitForSeconds(2f);
-            healthSlider.gameObject.SetActive(false);
+            }  
         }
 
         private int SetMaxHealthFromHealthLevel()

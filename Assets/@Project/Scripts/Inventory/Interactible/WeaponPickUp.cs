@@ -24,6 +24,7 @@ namespace SG
             if(other.CompareTag("Player"))
             {
                 pickUpPanel.SetActive(true);
+                Debug.Log("Pick Up Item");
             }
         }
 
@@ -32,6 +33,7 @@ namespace SG
             if (other.CompareTag("Player"))
             {
                 pickUpPanel.SetActive(false);
+                Debug.Log("No Pick Up Item");
             }
         }
 

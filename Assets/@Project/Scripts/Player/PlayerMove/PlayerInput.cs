@@ -62,6 +62,7 @@ namespace SG
         {
             RollInput(_input.Player.Roll.IsPressed());
             AttackInput(_input.Player.Attack.IsPressed());
+
             isPickUp = _input.PickUpItem.PickUp.IsPressed();
             openChest = _input.PickUpItem.PickUp.IsPressed();
 

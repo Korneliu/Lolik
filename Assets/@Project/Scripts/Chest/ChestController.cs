@@ -27,6 +27,7 @@ namespace SG
         {
             if (other.CompareTag("Player"))
             {
+                Debug.Log("Open Chest Collider");
                 openChestPanel.SetActive(true);
             }
         }
@@ -35,6 +36,7 @@ namespace SG
         {
             if (other.CompareTag("Player"))
             {
+                Debug.Log("Close Chest Collider");
                 openChestPanel.SetActive(false);
             }
         }
